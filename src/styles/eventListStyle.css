@@ -1,0 +1,145 @@
+/* event list styles - should show up*/
+.eventItem .row,
+.eventItem .col {
+    padding:0px;
+}
+.eventItem .row.event-detail-row,
+.eventItem .row.event-name-row {
+    height:3vh;
+}
+.imageOval
+{
+    position: absolute;
+    left: 2vw;
+    width: 18vw;
+    top: 16vh;
+    height: 18vw;
+    background-image: url(../images/dj-default.png);
+    background-repeat: no-repeat;
+    background-position: -1px -1px;
+    background-size: 100%;
+    border: 2px solid rgb(236, 134, 30);
+    -webkit-border-radius: 50%;
+       -moz-border-radius: 50%;
+            border-radius: 50%;
+}
+
+.eventImageBgk
+{
+    /*position: absolute;*/
+    left: 0px;
+    width: 100%;
+    top: 0px;
+    height: 24vh;
+    background-image: url(../images/event-default.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 154px;
+    background-position: 0px 0px;
+    border: none;
+}
+
+.eventMainText
+{
+    font-size: 12px;
+    text-align: left;
+    font-weight: bold;
+    font-family: Helvetica, sans-serif;
+    color: rgb(236, 134, 30);
+}
+.clubNameText
+{
+    background: none;
+    border: none;
+    font-size: 10px;
+    text-align: left;
+    font-family: Helvetica, sans-serif;
+    color: rgb(255, 255, 255);
+}
+.djNameText
+{
+    background: none;
+    border: none;
+    font-size: 10px;
+    text-align: left;
+    font-family: Helvetica, sans-serif;
+    color: rgb(255, 255, 255);
+}
+.musicStyleText
+{
+    background: none;
+    border: none;
+    font-size: 10px;
+    text-align: left;
+    font-family: Helvetica, sans-serif;
+    color: rgb(255, 255, 255);
+}
+
+.eventViewText
+{
+    background: none;
+    border: none;
+    font-size: 13.5px;
+    text-align: left;
+    font-weight: bold;
+    font-family: Helvetica-Bold, Helvetica, sans-serif;
+    color: rgb(255, 255, 255);
+}
+
+.eventList .item {
+    border-style: none;
+    background-color: transparent !important;
+    padding: 0px;
+    height: 30vh;
+}
+
+.eventItem a {
+    color:#ffffff;
+    text-decoration: none;
+}
+
+.eventItem > .item-content.activated {
+    border-color: #145fd7 !important;
+    background-color: #444444 !important;
+}
+
+.bar-subheader {
+    background-color: rgb(85, 188, 175);
+    color: white;
+    border-bottom-width: 0px;
+}
+
+.bar-subheader h1 {
+    color: #ffffff;
+}
+.no-events{
+    height:100vh;
+}
+.box {
+    min-height:100vh;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min--moz-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2/1),
+only screen and (min-device-pixel-ratio: 2),
+only screen and (min-resolution: 2dppx) {
+    .eventImageBgk
+    {
+        background-image: url(../images/event-default.jpg);
+        background-size: 100% 400px;
+    }
+
+    .imageOval
+    {
+        background-image: url(../images/dj-default.png);
+        background-size: 65px 65px;
+    }
+}
+
+@media (min-width: 350px) {
+    .eventViewText
+    {
+        left: 320px
+    }
+}
+
+/* end event list styles */

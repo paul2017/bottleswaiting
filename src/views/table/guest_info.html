@@ -1,0 +1,31 @@
+<ion-view class="main" no-drag-left>
+	<ion-content>
+        <form name="guestForm">
+		<ion-list class="transparent-bg white-fg guest-list">
+
+            <ion-item ng-repeat="guest in guests" class="transparent-bg white-fg guest">
+            	<div class="row">
+            		{{guest.label}}
+           	 	</div>
+                <div class="row">
+                    <label class="item item-input col">
+                        <input hide-on-enter type="text" name="{{getName($index, 'name')}}"  ui-validate="'$value.split(\' \').length > 1'" placeholder="Enter first and last name" ng-model="guest.name"/>
+                    </label>
+                </div>
+                <div class="row">
+                    <label class="item item-input col">
+                        <input hide-on-enter type="number" name="{{getName($index, 'phone')}}" required placeholder="Phone" ng-model="guest.phone" />
+                    </label>
+                </div>
+                <div class="row">
+                    <select class="col" ng-model="guest.gender" required ng-options="gender.short as gender.name for gender in genders"></select>
+                </div>
+            </ion-item>
+
+        </ion-list>
+        </form>
+        <button class="button button-full btn-orange" ng-click="next()">
+          Next
+        </button>
+	</ion-content>
+</ion-view>

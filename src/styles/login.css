@@ -1,0 +1,79 @@
+/* start of login.css */
+.center-screen {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    right: 0;
+    margin: auto;
+    height: 60px;
+    width: 300px;
+}
+
+.pad-25 {
+    padding: 0 25%;
+}
+.pad-10 {
+    padding: 0 10%;
+}
+
+.margin-top-25 {
+    margin-top: 25px;
+}
+
+.center-img-block {
+    margin: 0 auto;
+}
+
+.center-img-block img {
+    width: 100%;
+}
+
+.signup.list-inset,
+.login.list-inset {
+    background-color: transparent;
+    margin: 10px 0 20px 0;
+}
+
+.signup h3,
+.login h3 {
+    margin-left: -20px;
+}
+
+.signup .item,
+.login .item {
+    background-color: transparent;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-bottom: 1px solid #ffffff;
+    margin-bottom: 7px !important;
+}
+
+.signup .item-input,
+.login .item-input {
+    padding: 0 0 0 1px;
+}
+
+.signup > .item input,
+.login > .item input {
+    padding: 6px 0 5px 0px;
+    color: #ffffff;
+}
+
+.button.button-login {
+    margin: 0;
+    border-color: #fa800b;
+    background-color: #fa800b;
+    color: #fff;
+}
+.button.button-signup {
+    margin: 0;
+    border-color: #25bea7;
+    background-color: #25bea7;
+    color: #fff;
+}
+.login-panel {
+    max-width: 640px !important;
+}
+/* end of login css */

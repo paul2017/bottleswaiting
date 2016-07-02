@@ -1,0 +1,33 @@
+<ion-view>
+    <ion-content class="login-panel">
+        <div class="center-img-block pad-25">
+            <img src="images/bw-login-header.png" />
+        </div>
+        <div class="margin-top-25">&nbsp;</div>
+        <div class="center-img-block pad-10" ng-click="loginWithFB()">
+            <img src="images/bw-fb-login-btn.png" />
+        </div>
+        <form type="submit" ng-submit="login()">
+        <div class="login list list-inset pad-10">
+            <label class="item item-input">
+                <img src="images/bw-mail-sm-icn.png" class="placeholder-icon" />
+                <input type="email" placeholder="email" ng-model="$parent.username">
+            </label>
+            <label class="item item-input">
+                <img src="images/bw-pass-sm-icn.png" class="placeholder-icon" />
+                <input type="password" placeholder="password" ng-model="$parent.password" id="password">
+            </label>
+        </div>
+        <div class="col-80 col-offset-10">
+            <button class="button button-full button-login" type="submitnode">Login</button>
+        </div>
+        </form>
+        <div class="col text-center" style="color: #ffffff">
+            OR
+        </div>
+        <div class="col-80 col-offset-10">
+            <button class="button button-full button-signup" ng-click="signup()">Sign Up</button>
+        </div>
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,109 @@
+<ion-view class="preorder main"  no-drag-left>
+    <ion-content>
+
+        <ion-list>
+            <div ng-if="packages">
+                <ion-item class="category-label"
+                    ng-click="toggleGroup(packages)">
+                    {{packages.label}}
+                    &nbsp;
+                    <i class="icon" ng-class="isGroupShown(packages) ? 'ion-arrow-down-b' : 'ion-arrow-up-b'"></i>
+                </ion-item>
+                <ion-item class="item-accordion text-center"
+                    ng-show="isGroupShown(packages)">
+                    <div class="row">
+                        <div class="col col-center col-offset-10 text-left">Title</div>
+                        <div class="col col-center col-10">Qty</div>
+                        <div class="col col-center col-20">Size</div>
+                        <div class="col col-center col-25">Price</div>
+                    </div>
+                    <div ng-repeat="package in packages.packages">
+                        <div class="row">
+                            <div class="col col-center col-10"><input hide-on-enter class="quan-input" type="number" ng-model="package.quantity" placeholder="0" ng-change="updateOrder(package, package.quantity)"></div>
+                            <div class="col col-center text-left">{{package.name}}</div>
+                            <div class="col col-center col-25">{{package.price | currency}}</div>
+                        </div>
+                        <div class="row" ng-repeat="item in package.packageItems ">
+                            
+                            <div class="col col-center col-offset-10 text-left">{{item.name}}</div>
+                            <div class="col col-center col-10">{{item.quantity}}</div>
+                            <div class="col col-center col-20">{{item.volume}} {{item.volumeUnit === 'NONE'? '' : item.volumeUnit}}</div>
+                            <div class="col col-center col-25"></div>
+                        </div>
+                    </div>
+                </ion-item>
+            </div>
+            <div ng-repeat="category in menuCategories">
+                <ion-item class="category-label"
+                    ng-click="toggleGroup(category)">
+                    {{category.name}}
+                    &nbsp;
+                    <i class="icon" ng-class="isGroupShown(category) ? 'ion-arrow-down-b' : 'ion-arrow-up-b'"></i>
+                </ion-item>
+                <ion-item class="item-accordion  text-center" ng-show="isGroupShown(category)">
+                    <div class="row">
+                        <div class="col col-center col-offset-10 text-left">Title</div>
+                        
+                        <div class="col col-center col-20">Size</div>
+                        <div class="col col-center col-25">Price</div>
+                    </div>
+                    <div class="row" ng-repeat="item in category.items">
+                        <div class="col col-center col-10"><input hide-on-enter placeholder="0" class="quan-input" type="number"  ng-model="item.quantity" ng-change="updateOrder(item, item.quantity)"></div>
+                        <div class="col col-center text-left">{{item.name}}</div>
+                        
+                        <div class="col col-center col-20">{{item.volume}} {{item.volumeUnit === 'NONE'? '' : item.volumeUnit}}</div>
+                        <div class="col col-center col-25">{{item.price | currency}}</div>
+                    </div>
+                </ion-item>
+            </div>
+        </ion-list>
+        <div class="order-wrapper">
+            
+            <div class="row pad-bottom-0 ">
+                <div class="col-offset-10 col col-50 pad-bottom-0 ">Order</div>
+                <div class="col text-center pad-bottom-0 ">Price</div>
+            </div>
+            <div ng-if="getOrderItems().length > 0" class="order-items">
+                <hr>
+                <div ng-repeat="orderItem in getOrderItems()">
+                    <div class="row">
+                        <div class="col-10 col">{{orderItem.quantity}}</div>
+                        <div class="col-50 col">{{orderItem.name}}</div>
+                        <div class="col text-center">{{orderItem.quantity * orderItem.unitPrice | currency}}</div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <div class="row">
+                <div class="col-offset-10 col col-50 pad-bottom-0 "> Subtotal </div>
+                <div class="col  text-center pad-bottom-0 "> {{getOrder().subTotal | currency}} </div>
+            </div>
+        </div>
+        <hr>
+        <div class="order-wrapper">
+            <div class="row">
+                <div class="col-offset-10 col col-50"> Table Min. </div>
+                <div class="col  text-center"> {{getOrder().minimumBuy | currency}} </div>
+            </div>
+            <div class="row">
+                <div class="col-offset-10 col col-50"> Tip </div>
+                <div class="col  text-center"> {{getOrder().tip | currency}}</div>
+            </div>
+            <div class="row">
+                <div class="col-offset-10 col col-50"> Tax </div>
+                <div class="col text-center"> {{getOrder().tax | currency}} </div>
+            </div>
+            
+            
+            <div class="row">
+                <div class="col-offset-10 col col-50"> Total </div>
+                <div class="col text-center"> {{getOrder().total | currency}} </div>
+            </div>
+        </div>
+        
+    </ion-content>
+    <ion-footer-bar>
+        <button class="btn-orange col" ng-click="goToPayment('cc')">Credit Card</button>
+        <button class="btn-blue col" ng-click="goToPayment('sp')">Split Payment</button>
+    </ion-footer-bar>
+</ion-view>

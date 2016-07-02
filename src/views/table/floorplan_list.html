@@ -1,0 +1,13 @@
+<ion-view class="main"  no-drag-left>
+	<ion-content>
+		<ion-list class="transparent-bg white-fg floorplan-list">
+            <ion-item ng-repeat="layout in layouts" class="transparent-bg white-fg layout" ui-sref="base.tableSelect({layoutId: layout.layoutId, eventId : event.eventId})">
+            	<div class="row">
+            		<div class="col-80 col col-center">{{layout.name}}</div>
+                	<div class="col ion-chevron-right text-right"></div>
+           	 	</div>
+                
+            </ion-item>
+        </ion-list>
+	</ion-content>
+</ion-view>

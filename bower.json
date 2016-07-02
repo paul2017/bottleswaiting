@@ -1,0 +1,16 @@
+{
+  "name": "BottlesWaiting",
+  "version": "0.0.1-SNAPSHOT",
+  "private": "true",
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.0.0-beta.13",
+    "angular-local-storage": "~0.1.5",
+    "lodash": "~2.4.1",
+    "jquery": "~2.1.1",
+    "moment": "~2.8.3",
+    "ngCordova": "~0.1.7-alpha",
+    "angular-moment": "~0.8.2",
+    "angular-native-picker": "~1.0.4",
+    "ui-utils": "~0.1.1"
+  }
+}

@@ -1,0 +1,45 @@
+<ion-view class="main"  no-drag-left>
+	<ion-content class="pass-purchase text-center">
+		<h3 >{{consumerPass.name}} Passes</h3>
+        <h5>{{event.name}}</h4>
+        <h5>{{event.eventDate | date:'mediumDate'}}</h4>
+        <div  ng-repeat="gender in consumerPass.genders">
+            <div class="row">
+                <h3 class="col-80 col-offset-10">{{gender.quantity ? gender.quantity : 0}} {{gender.gender === 'M'? "Male" : "Female"}} {{passes.name}} Passes {{gender.price | currency}}</h4>
+            </div>
+            <div class="row">
+                <div class="col col-offset-33 col-33">
+                    <button class="btn-quantity btn-offwhite" ng-click="decrement(gender)"><i class="ion-minus"></i></button>
+                    <button class="btn-quantity btn-offwhite" ng-click="increment(gender)"><i class="ion-plus"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="order-summary">
+            <div class="row">
+                <h3 class="col">
+                    Total {{consumerPass.name}}
+                </h3>
+            </div>
+            <div ng-repeat="gender in consumerPass.genders">
+                <div class="row">
+                    <label class="col">
+                        {{gender.gender === 'M' ? 'Male' : 'Female'}} - {{gender.quantity}}
+                    </label>
+                </div>
+            </div>
+            <div class="row text-center">
+                <label class="col-offset-25 col-50 col line-item">
+                    Tax {{getOrder().tax | currency}}
+                </label>
+            </div>
+            <div class="row text-center">
+                <label class="col-offset-25 col-50 col line-item">
+                    Total Cost {{getOrder().total | currency}}
+                </label>
+            </div>
+        </div>
+        <button class="button button-full btn-orange" ng-click="purchase()">
+            Checkout
+        </button>
+	</ion-content>
+</ion-view>

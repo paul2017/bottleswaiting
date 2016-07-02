@@ -1,0 +1,115 @@
+<ion-view class="main">
+	<ion-content class="confirmation">
+		<h3 class="text-center">Congratulations</h3>
+		<div class="row text-center text">
+			<div class="col">Your reservation was successful!</div>
+		</div>
+		<h4 class="text-center">Confirmation #{{confirmation.reservationId}}</h4>
+		<h4 class="text-center">Reservation</h4>
+		<div class="row">
+			<div class="col col-33 col-offset-10 text-right"><b>Location:</b></div>
+
+			<div class="col text-left">{{confirmation.venueName}}</div>
+		</div>
+		<div class="row">
+			<div class="col col-33 col-offset-10 text-right"><b>Address:</b></div>
+			<div class="col text-left">{{confirmation.address1}}</div>
+		</div>
+		<div class="row">
+			<div class="col-10 col"></div>
+			<div class="col col-offset-33 text-left">{{confirmation.address2}}</div>
+		</div>
+		<div class="row">
+			<div class="col col-33 col-offset-10 text-right"><b>Date:</b></div>
+			<div class="col text-left">{{confirmation.eventDate | date:'shortDate'}}</div>
+		</div>
+		<div class="row" ng-if="confirmation.eta">
+			<div class="col col-33 col-offset-10 text-right"><b>Bottles Ready At:</b></div>
+			<div class="col text-left">{{confirmation.eta}}</div>
+		</div>
+		<div class="row" ng-if="confirmation.floorName">
+			<div class="col col-33 col-offset-10 text-right"><b>Floor:</b></div>
+			<div class="col text-left">{{confirmation.floorName}}</div>
+		</div>
+		<div class="row" ng-if="confirmation.tableName">
+			<div class="col col-33 col-offset-10 text-right"><b>Table:</b></div>
+			<div class="col text-left">{{confirmation.tableName}}</div>
+		</div>
+		<div class="row" ng-if="confirmation.guestCount !== 0">
+			<div class="col col-33 col-offset-10 text-right"><b>Guest Count:</b></div>
+			<div class="col text-left">{{confirmation.guestCount}}</div>
+		</div>
+		<div class="row">
+			<div class="col col-33 col-offset-10 text-right"><b>Named Guests:</b></div>
+			<div class="col text-left">{{confirmation.reservationMakerName}}</div>
+		</div>
+		<div class="row" ng-repeat="guest in confirmation.guestNames" ng-if="guest != confirmation.reservationMakerName">
+			<div class="col-10 col"></div>
+			<div class="col col-offset-33 text-left">{{guest}}</div>
+		</div>
+		<div ng-show="confirmation.liquors.length > 0">
+			<div class="row">
+				<div class="col col-33 col-offset-10 text-right"><b>Liquors:</b></div>
+				<div class="col text-left">{{confirmation.liquors[0]}}</div>
+			</div>
+			<div class="row" ng-repeat="orderItem in confirmation.liquors" ng-if="$index != 0">
+				<div class="col-10 col"></div>
+				<div class="col col-offset-33 text-left">{{orderItem}}</div>
+			</div>
+		</div>
+		<div ng-show="confirmation.mixers.length > 0">
+			<div class="row">
+				<div class="col col-33 col-offset-10 text-right"><b>Mixers:</b></div>
+				<div class="col text-left">{{confirmation.mixers[0]}}</div>
+			</div>
+			<div class="row" ng-repeat="orderItem in confirmation.mixers" ng-if="$index != 0">
+				<div class="col-10 col"></div>
+				<div class="col col-offset-33 text-left">{{orderItem}}</div>
+			</div>
+		</div>
+		<div ng-show="confirmation.packages.length > 0">
+			<div class="row">
+				<div class="col col-33 col-offset-10 text-right"><b>Packages:</b></div>
+				<div class="col text-left">{{confirmation.packages[0]}}</div>
+			</div>
+			<div class="row" ng-repeat="orderItem in confirmation.packages" ng-if="$index != 0">
+				<div class="col-10 col"></div>
+				<div class="col col-offset-33 text-left">{{orderItem}}</div>
+			</div>
+		</div>
+		<div ng-show="confirmation.passes.length > 0">
+			<div class="row">
+				<div class="col col-33 col-offset-10 text-right"><b>Passes:</b></div>
+				<div class="col text-left">{{confirmation.passes[0]}}</div>
+			</div>
+			<div class="row" ng-repeat="orderItem in confirmation.passes" ng-if="$index != 0">
+				<div class="col-10 col"></div>
+				<div class="col col-offset-33 text-left">{{orderItem}}</div>
+			</div>
+		</div>
+		<div class="row" ng-hide="confirmation.passes.length > 0">
+			<div class="col col-33 col-offset-10 text-right"><b>Current subtotal:</b></div>
+			<div class="col text-left">{{confirmation.subtotal | currency}}</div>
+		</div>
+		<div class="row" ng-hide="confirmation.passes.length > 0">
+			<div class="col col-33 col-offset-10 text-right"><b>Table minimum:</b></div>
+			<div class="col text-left">{{confirmation.tableMinBuy | currency}}</div>
+		</div>
+		<div class="row" ng-hide="confirmation.passes.length > 0">
+			<div class="col col-33 col-offset-10 text-right"><b>Tip: {{confirmation.tip/confirmation.subtotal*100 | number : 0}}%</b></div>
+			<div class="col text-left">{{confirmation.tip | currency}}</div>
+		</div>
+		<div class="row">
+			<div class="col col-33 col-offset-10 text-right"><b>Tax: {{confirmation.tax/confirmation.subtotal*100 | number : 0}}%</b></div>
+			<div class="col text-left">{{confirmation.tax | currency}}</div>
+			
+		</div>
+		<div class="row">
+			<div class="col col-33 col-offset-10 text-right"><b>Total:</b></div>
+			<div class="col text-left">{{confirmation.total | currency}}</div>
+		</div>
+		<button class="button button-full btn-orange" ng-click="exit()">
+		  	Exit
+		</button>
+	</ion-content>
+</ion-view>

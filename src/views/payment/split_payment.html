@@ -1,0 +1,59 @@
+<ion-view class="split-payment main"  no-drag-left>
+<ion-content>
+	<h4>Split Payment</h4>
+	<div class="row text-center">
+		<div class="col">
+			Enter the people you want to split with. Tap on person icon next to each payer to select from contacts.
+		</div>
+	</div>
+
+	<ion-list>
+		<ion-item class="text-center splitter" ng-repeat="splitter in splitters"> 
+			<div class="row">
+				<label class="item item-input col col-75">
+                        <input hide-on-enter type="text" name="{{$index}}-name"  ui-validate="'$value.split(\' \').length > 1'" placeholder="Name" ng-model="splitter.name" />
+                    </label>
+				<div class="col"><button class="btn remove-splitter btn-offwhite" ng-click="pickContact($index)"><i class="ion-person"></i></button><button class="btn remove-splitter btn-offwhite" ng-click="removeSplitter(splitter)"><i class="ion-close-round"></i></button></div>
+			</div>
+			<div class="row">
+				<label class="item item-input col">
+                        <input hide-on-enter type="number" name="{{$index}}-phone" required placeholder="Phone" ng-model="splitter.phoneNumber" />
+                    </label>
+			</div>
+		</ion-item>
+	</ion-list>
+	<div class="row add-splitter" ng-click="addSplitter()">
+		<button class="col-10 btn-offwhite">+</button>
+		<div class="col">Add Friend</div>
+	</div>
+	<div class="row text-center">
+		If other people you are splitting the bill with does not pay, how would you like us to handle your reservation?
+	</div>
+	<div class="row pay-remaining">
+		<div class="col col-offset-10 col-10">
+			<button class="btn-offwhite checkbox" ng-model="$parent.payRemaining" ng-click="$parent.payRemaining = !$parent.payRemaining" >
+	        	<div class="ion-checkmark" ng-show="payRemaining"></div>
+	        </button>
+	    </div>
+        <div class="col col-center">
+	        Pay the remaining balance
+	    </div>
+	</div>
+	<div class="row pay-remaining">
+		<div class="col text-center"><u>OR</u></div>
+	</div>
+	<div class="row pay-remaining">
+		<div class="col col-offset-10 col-10">
+			<button class="btn-offwhite checkbox" ng-model="$parent.payRemaining" ng-click="$parent.payRemaining = !$parent.payRemaining"  >
+	        	<div class="ion-checkmark" ng-show="!payRemaining"></div>
+	        </button>
+        </div>
+        <div class="col col-center">
+	        Cancel the reservation
+	    </div>
+	</div>
+	<button class="button button-full btn-orange" ng-click="confirm()">
+	  	Pay your portion/Send Splits
+	</button>
+</ion-view>
+</ion-content>

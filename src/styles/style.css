@@ -1,0 +1,117 @@
+.main {
+    background-image: url("../images/main_bg.png") !important;
+    background-size: initial;
+    color:white;
+}
+.main p,.main h1,.main h2,.main h3,.main h4,.main h5,.main h6 {
+    color:white;
+}
+.pane {
+    background-color: transparent; !important;
+}
+.transparent-bg {
+    background-color: transparent; !important;
+}
+.popup-container .popup {
+    background-color: rgba(59, 53, 124, 0.9);
+    color:white;
+}
+.popup-container .popup .button-default {
+    color:white;
+    background-color: #5FC3B8;
+    border:none;
+}
+.popup-container .popup .button-default:focus,
+.popup-container .popup .button-default.activated {
+    color:white;
+    background-color: #4BAD9F;
+}
+.popup-container .popup h3 {
+    color:white;
+}
+.white-fg {
+    color: #ffffff !important;
+}
+.btn-teal,
+.btn-blue,
+.btn-orange {
+    border: none;
+}
+.btn-teal {
+    color:white;
+    background-color: #5FC3B8;
+}
+.btn-teal:hover,
+.btn-teal:focus,
+.btn-teal.activated {
+    color:white;
+    background-color: #4BAD9F;
+}
+.button.energized,
+.background-orange,
+.btn-orange {
+    color:white;
+    background-color: #FF9E15;
+}
+.button.energized:hover,
+.button.energized:focus,
+.button.energized.activated,
+.btn-orange:hover,
+.btn-orange:focus,
+.btn-orange.activated {
+    color:white;
+    background-color: #E27A13;
+}
+.btn-offwhite {
+    color:white;
+    background-color: rgba(255,255,255, 0.2);
+    -webkit-tap-highlight-color: rgba(255,255,255, 0.4);
+    border:none;
+}
+.btn-offwhite:hover,
+.btn-offwhite:focus,
+.btn-offwhite.activated {
+    color:white;
+    background-color: rgba(255,255,255, 0.4);
+}
+.btn-blue {
+    color:white;
+    background-color: #4597D2;
+}
+.btn-blue:hover,
+.btn-blue:focus,
+.btn-blue.activated {
+    color:white;
+    background-color: #3C80AA;
+}
+.hide-fade.ng-hide-remove {
+  -webkit-transition:all linear 0.5s;
+  -moz-transition:all linear 0.5s;
+  -o-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+  display:block!important;
+}
+.hide-fade.ng-hide-add.ng-hide-add-active,
+.hide-fade.ng-hide-remove {
+  opacity:0;
+}
+.hide-fade.ng-hide-add,
+.hide-fade.ng-hide-remove.ng-hide-remove-active {
+  opacity:1;
+}
+.title-image {
+    height:4vh;
+    margin-top:1.5vh;
+}
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+/*.bar .title {
+    margin-top: 5px;
+    line-height: 16px;
+}*/

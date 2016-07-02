@@ -1,0 +1,38 @@
+<ion-view has-subheader="true">
+    <ion-content padding="true" class="has-header" ng-style="{'background-color': 'transparent'}">
+        <form>
+            <label class="row search item item-select" name="cityName">
+                
+                <span class="col col-33 col-center input-label search">City</span>
+                <select class="col col-center search" ng-model="selectedData.selectedCity" ng-options="city for city in cities">
+                </select>
+            </label>
+            <label class="row search item item-select" name="dateSelected">
+                <span class="col col-33 col-center input-label search">Date</span>
+                <select class="col col-center search" ng-model="selectedData.selectedDate" ng-options="date for date in dates"></select>
+            </label>
+             <label class="row search item item-select" name="dateSelected">
+                <span class="col col-33 col-center input-label search">Music Type:</span>
+                <select class="col col-center search" ng-model="selectedData.selectedMusicType" ng-options="musicType.type as musicType.name for musicType in musicTypes"></select>
+            </label>
+            <button class="btn-teal button-full button-small" ng-click="search()">Search</button>
+        </form>
+        <div class="spacer" style="width: 300px; height: 29px;"></div>
+        <div class="search">
+            <p>Where would you like to see
+                <strong>Bottles Waiting?</strong>
+            </p>
+        </div>
+        <form>
+            <label class="search row item item-input " name="suggestCity">
+                <span class="col col-33 col-center input-label search">City:</span>
+                <input type="text" placeholder="e.g. San Francisco" class="col"
+                       ng-model="selectedData.suggestedCity">
+            </label>
+            <div class="row" style="margin-top:5px">
+                <button class="btn-teal button-full button-small" ng-click="submitSuggestedCity()">Send Suggestion</button>
+            </div>
+        </form>
+
+    </ion-content>
+</ion-view>

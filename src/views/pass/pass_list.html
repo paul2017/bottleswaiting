@@ -1,0 +1,13 @@
+<ion-view class="main" no-drag-left>
+	<ion-content >
+		<ion-list class="transparent-bg white-fg pass-list">
+            <ion-item ng-repeat="pass in passes" class="transparent-bg white-fg pass" ui-sref="base.passPurchase({passType: pass.passType, eventId : event.eventId})">
+            	<div class="row">
+            		<div class="col-80 col col-center">{{pass.name}}</div>
+                	<div class="col ion-chevron-right text-right"></div>
+           	 	</div>
+                
+            </ion-item>
+        </ion-list>
+	</ion-content>
+</ion-view>

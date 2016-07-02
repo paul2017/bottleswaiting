@@ -1,0 +1,24 @@
+<div>
+<p class="text-center no-events padding" ng-show="events.length < 1">
+    No events found for this date. Please try another date. You can swipe left and right to change dates, or click on the search icon above to change cities
+</p>
+<ion-list class="transparent-bg white-fg eventList">
+    <ion-item ng-repeat="event in events" class="transparent-bg white-fg eventItem" ng-click="goToEvent(event.eventId)" item="event">
+        <div class="row eventImageBgk" ng-style="event.croppedUrl && {'background-image':'url('+event.croppedUrl+')',
+            'background-size': '99% 100%', 'background-position': 'center'
+        } ">
+        </div>
+        <div class="imageOval" ng-style="event.entertainers[0].croppedUrl && {'background-image':'url('+event.entertainers[0].croppedUrl+')'}">
+        </div>
+        <div class="row event-name-row">
+            <div class="col-offset-20 col-center col col-66 eventMainText">   {{event.name}}</div>
+            <div class="col-25 col col-center eventViewText"><a ng-click="goToEvent(event.eventId)">View</a></div>
+        </div>
+        <div class="row event-detail-row">
+            <div class="col-offset-20 col col-center col-33 clubNameText">{{event.venueName}}</div>
+            <div class="col-20 col col-center djNameText">{{event.entertainers[0].name}}</div>
+            <div class="col-20 col col-center musicStyleText">{{capFirst(event.musicType)}}</div>
+        </div>
+    </ion-item>
+</ion-list>
+</div>

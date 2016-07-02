@@ -1,0 +1,48 @@
+.pass-list .item-content {
+	background-color: rgba(255,255,255, 0.2);
+	font-size:6vw;
+	line-height:6vw;
+	padding:10%;
+}
+.pass-list .item-content.activated,
+.pass-list .item-content:focus {
+	background-color: rgba(255,255,255, 0.4);
+}
+.pass-list .item,
+.pass-list .item-content {
+	border:none;
+	margin-bottom:2px;
+}
+.pass-purchase {
+	margin-top:2vw;
+}
+.pass-purchase .btn-quantity {
+	font-size: 12vw;
+	line-height: 0px;
+	padding: 0 0 0 0;
+	font-weight: 100;
+	height: 14vw;
+	width: 14vw;
+}
+.pass-purchase .order-summary {
+	margin-top:10px;
+}
+.pass-purchase .order-summary h3 {
+	margin-bottom:0px;
+}
+.pass-purchase .order-summary label {
+	font-size:5vw;
+	font-weight:200;
+}
+.pass-purchase .order-summary .row {
+	padding:1px;
+}
+.pass-purchase h3 {
+	font-weight:300;
+}
+.pass-purchase h5 {
+	font-weight:200;
+}
+.pass-purchase .line-item {
+	border-top: 1px solid rgba(255,255,255,0.7);
+}

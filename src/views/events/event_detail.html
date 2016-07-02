@@ -1,0 +1,93 @@
+<ion-view class="event-detail main" no-drag-left>
+<ion-content ng-hide="!showFullImage" ng-click="toggleFullImage()" class="hide-fade">
+	<img style ="width:100%" ng-src="{{event.photoUrl}}" >
+</ion-content>
+<ion-content ng-hide="showFullImage">
+	<div class="flyer-wrapper" ng-click="toggleFullImage()">
+		<img ng-src="{{event.croppedUrl ? event.croppedUrl : defaultEventImageUrl}}" >
+	</div>
+	<div class="row event-name">
+		<div class="col text-center">
+			<label>{{event.name}}</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-33 col-offset-10 col text-right">
+			<label class="info-label"><b>Venue:</b></label>
+		</div>
+		<div class="col">
+			<label class="info-content">{{event.venueName}}</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-33 col-offset-10 col text-right">
+			<label class="info-label"><b>Address:</b></label>
+		</div>
+		<div class="col">
+			<label class="info-content">{{venue.streetAddress}}</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-33 col-offset-10 col text-right">
+			
+		</div>
+		<div class="col">
+			<label class="info-content">{{venue.city}}, {{venue.state}} {{venue.zip}}</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-33 col-offset-10 col text-right">
+			<label class="info-label"><b>When:</b></label>
+		</div>
+		<div class="col">
+			<label class="info-content">{{event.eventDate | date:'mediumDate'}}</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-33 col-offset-10 col text-right">
+			<label class="info-label"><b>Time:</b></label>
+		</div>
+		<div class="col">
+			<label class="info-content">{{event.startTime}} - {{event.endTime? event.endTime : "Until Close"}}</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-33 col-offset-10 col text-right">
+			<label class="info-label"><b>Age:</b></label>
+		</div>
+		<div class="col">
+			<label class="info-content">{{event.ageLimit}}+</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-33 col-offset-10 col text-right">
+			<label class="info-label"><b>Music:</b></label>
+		</div>
+		<div class="col">
+			<label class="info-content">{{event.musicType}}</label>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-33 col-offset-10 col text-right">
+			<label class="info-label"><b>Dress Code:</b></label>
+		</div>
+		<div class="col">
+			<label class="info-content">{{event.dressReq}}</label>
+		</div>
+	</div>
+	<div class="row text-center dj-info">
+		<div class="col-33 col col-center col-offset-10">
+			<img class="dj-image" ng-src="{{event.entertainers[0].croppedUrl ? event.entertainers[0].croppedUrl : defaultDjImageUrl}}">
+		</div>
+		<label class="col col-33 col-center">
+			<div class="info-label" style="margin-bottom:10px"><b>Hosted By</b></div>
+			<div> {{event.entertainers[0].name}}</div>
+		</label>
+	</div>
+</ion-content>
+<ion-footer-bar ng-hide="showFullImage">
+  <button class="btn-teal col" ng-if="event.passes.length > 0" ui-sref="base.passList({eventId:event.eventId})">Buy Passes</button>
+  <button class="btn-blue col" ui-sref="base.floorplanList({eventId:event.eventId})">Reserve Table</button>
+</ion-footer-bar>
+</ion-view>

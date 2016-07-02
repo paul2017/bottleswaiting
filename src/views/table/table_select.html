@@ -1,0 +1,26 @@
+<ion-view class="main">
+	<ion-content class="table-select">
+		<ion-scroll zooming="true" direction="xy" locking="false" class="layout-scroll" id="layout-scroll">
+			<img class="floorplan-image" ng-src="{{layout.photoUrl}}">
+			<img type="image/svg+xml" ng-src="{{getIcon(table)}}" class="tag" ng-style="tagStyle(table)" ng-click="selectTable(table)" ng-repeat="table in tables">
+		</ion-scroll>
+		<div class="row">
+			<div class="col text-center">
+				<img type="image/svg+xml" src="images/blueicon.svg" class="logo">
+			 	<label style="color:#4597D2">Blue</label> <label> - Available</label>
+			 </div>
+		</div>
+		<div class="row">
+			<div class="col text-center">
+				<img type="image/svg+xml" src="images/redicon.svg" class="logo">
+			 	<label style="color:red;">Red</label> <label> - Reserved</label>
+			 </div>
+		</div>
+		<div class="row">
+			<div class="col text-center">
+				<img type="image/svg+xml" src="images/orangeicon.svg" class="logo">
+			 	<label style="color:orange;">Orange</label> <label> - Celebrity</label>
+			 </div>
+		</div>
+	</ion-content>
+</ion-view>

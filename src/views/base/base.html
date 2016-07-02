@@ -1,0 +1,38 @@
+<ion-side-menus>
+    <ion-side-menu-content drag-content="canDrag()">
+        <ion-nav-bar class="bar-positive nav-title-slide-ios7 icon">
+            <ion-nav-buttons side="primary">
+                <button class="button button-clear" ng-if="isLoggedIn()" ng-click="toggleMenu()">
+                    <img src="./images/header.svg">
+                </button>
+            </ion-nav-buttons>
+            <h1 class="title" style="left: 44px; right: 44px;"><img class="title-image" src="images/bw-header-logo.svg"></h1>
+            <ion-nav-buttons side="right">
+                <button class="button button-clear" ng-if="isEventList()" ng-click="goToSearch()">
+                    <img src="./images/search_icon.svg" width="28px">
+                </button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-nav-view name="mainView" no-drag-left title="<img class='title-image' src='images/bw-header-logo.svg' />"></ion-nav-view>
+    </ion-side-menu-content>
+
+    <ion-side-menu side="left">
+        <ion-header-bar class="bar-positive">
+            <h1 class="title">Profile</h1>
+        </ion-header-bar>
+        <ion-nav-view has-subheader="true">
+            <ion-nav-view name="profileMenu" class="main"></ion-nav-view>
+        </ion-nav-view>
+    </ion-side-menu>
+
+    <ion-side-menu side="right" ng-if="isEventList()">
+        <ion-header-bar class="bar-positive">
+            <h1 class="title">Search</h1>
+        </ion-header-bar>
+        <ion-nav-view has-subheader="true">
+            <ion-nav-view name="searchView" class="main"></ion-nav-view>
+        </ion-nav-view>
+
+    </ion-side-menu>
+
+</ion-side-menus>

@@ -1,0 +1,38 @@
+<ion-view class="credit-card main"  no-drag-left>
+<ion-content>
+	<form name = "creditCardForm">
+		<div class="row">
+			<button class="button-full button btn-teal" ng-click="scan()">Scan your card</button>
+		</div>
+		<label class="item item-input">
+		    <span class="input-label">Name</span>
+		    <input hide-on-enter type="text" required ng-model="cc.name">
+	  	</label>
+		<label class="item item-input">
+		    <span class="input-label">Card Num</span>
+		    <input hide-on-enter type="tel" required bw-maxlength="19" ng-model="cc.cardNum">
+	  	</label>
+	  	<div class="row">
+		  	<label class="item item-input col-50">
+			    <span class="input-label">Exp Month</span>
+			    <input hide-on-enter type="number" bw-maxlength="2" ng-model="cc.expMonth">
+		  	</label>
+		  	<label class="item item-input col-50">
+			    <span class="input-label">Exp Year</span>
+			    <input hide-on-enter type="number" bw-maxlength="2" ng-model="cc.expYear">
+		  	</label>
+		</div>
+	  	<label class="item item-input">
+		    <span class="input-label">CVV</span>
+		    <input hide-on-enter type="number" required bw-maxlength="5" ng-model="cc.cvv">
+	  	</label>
+	  	<label class="item item-input">
+		    <span class="input-label">Zip</span>
+		    <input hide-on-enter type="number" required bw-maxlength="5" ng-model="cc.zip">
+	  	</label>
+	  	<div class="row">
+			<button class="button-full button btn-orange" ng-click="pay()">Make Reservation</button>
+		</div>
+	</form>
+</ion-content>
+</ion-view>

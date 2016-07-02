@@ -1,0 +1,20 @@
+<ion-view class="profile-menu">
+    <ion-content>
+        <div class="row">
+            <div class="col col-offset-33 col-33 text-center">
+                <img class="user-photo" ng-src="{{photoUrl}}">
+            </div>
+        </div>
+        <h4 class="text-center">{{user.firstName}} {{user.lastName}}</h4>
+        <ion-list class="white-fg menu-list">
+            <ion-item class="white-fg item" ng-click="logout()">
+                <div class="row">
+                    <i class="ion-log-out col col-10"></i> 
+                    <div class="col">Logout</div>
+                </div>
+            </ion-item>
+            
+        </ion-list>    
+
+    </ion-content>
+</ion-view>

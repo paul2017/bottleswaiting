@@ -1,0 +1,75 @@
+<ion-view class="main" no-drag-left>
+	<ion-content ng-hide="!showFullImage" ng-click="toggleFullImage()" class="hide-fade">
+		<img style ="width:100%" ng-src="{{table.photoUrl}}" >
+	</ion-content>
+	<ion-content class="table-detail" ng-hide="showFullImage" >
+		<div class="table-image-wrapper row" ng-click="toggleFullImage()">
+			<img class="table-image" ng-src="{{table.photoUrl ? table.photoUrl : defaultPhotoUrl}}">
+		</div>
+		<div class="row">
+			<div class="col info-label">Table Name:</div>
+			<div class="col info-content">{{table.name}}</div>
+		</div>
+		<div class="row">
+			<div class="col info-label">Floor Name:</div>
+			<div class="col info-content">{{table.layoutName}}</div>
+		</div>
+		<div class="row">
+			<div class="col info-label">Date:</div>
+			<div class="col info-content">{{event.eventDate | date:'shortDate'}}</div>
+		</div>
+		<hr>
+		<div class="row">
+			<div class="col info-label">Max Guests:</div>
+			<div class="col info-content">{{table.maxGuests}}</div>
+		</div>
+		<div class="row">
+			<div class="col info-label">Min. Purchase:</div>
+			<div class="col info-content">{{table.minBuy | currency}}</div>
+		</div>
+		<hr>
+		<div class="row">
+			<div class="col col-center info-label">ETA:</div>
+			<div class="col info-content"><select ng-model="reservation.eta" required name="eta" ng-options="time for time in etaTimes"></select></div>
+		</div>
+		<hr>
+		<div class="row text-center">
+			<div class="col">
+				{{reservation.guestCount}} Guests
+			</div>
+		</div>
+		<div class="row">
+            <div class="col text-center">
+                <button class="btn-quantity btn-offwhite" ng-click="decrement()"><i class="ion-minus"></i></button>
+                <button class="btn-quantity btn-offwhite" ng-click="increment()"><i class="ion-plus"></i></button>
+            </div>
+		</div>
+		<div class="row arrive-together">
+			<div class="col col-offset-10 col-10">
+				<button class="btn-offwhite checkbox" ng-model="$parent.arriveTogether" ng-click="$parent.arriveTogether = !$parent.arriveTogether" >
+		        	<div class="ion-checkmark" ng-show="arriveTogether"></div>
+		        </button>
+		    </div>
+	        <div class="col col-center">
+		        You and your guests will arrive together
+		    </div>
+    	</div>
+    	<div class="row arrive-together">
+    		<div class="col text-center"><u>OR</u></div>
+    	</div>
+    	<div class="row arrive-together">
+    		<div class="col col-offset-10 col-10">
+				<button class="btn-offwhite checkbox" ng-model="$parent.arriveTogether" ng-click="$parent.arriveTogether = !$parent.arriveTogether"  >
+		        	<div class="ion-checkmark" ng-show="!arriveTogether"></div>
+		        </button>
+	        </div>
+	        <div class="col col-center">
+		        You and your guests will arrive separately
+		    </div>
+    	</div>
+		<button class="button button-full btn-orange" ng-click="next()">
+		  Next
+		</button>
+	</ion-content>
+
+</ion-view>

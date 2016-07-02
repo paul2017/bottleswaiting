@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="com.bottleswaiting.cordova.card.io" version="0.2.3">
+    
+    <name>CardIOPlugin</name>
+    <description>Bottles Waiting Card.IO Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>card.io</keywords>
+    
+    <js-module src="www/card.io.js" name="card.io">
+        <clobbers target="cordova.plugins.cardio" />
+    </js-module>
+    
+    <platform name="android">
+            
+        <lib-file src="card-io-sdk-3.2/libs/card.io.jar" arch="device" />
+        <lib-file src="card-io-sdk-3.2/libs/armeabi-v7a" arch="device" />
+        <lib-file src="card-io-sdk-3.2/libs/armeabi" arch="device" />
+        <lib-file src="card-io-sdk-3.2/libs/mips" arch="device" />
+        <lib-file src="card-io-sdk-3.2/libs/x86" arch="device" />
+            
+        <source-file src="src/android/com/bottleswaiting/plugins/cardio/BWCardIOActivity.java" 
+            target-dir="src/com/bottleswaiting/plugins/cardio" />            
+        <source-file src="src/android/com/bottleswaiting/plugins/cardio/BWCardIOPlugin.java" 
+            target-dir="src/com/bottleswaiting/plugins/cardio/" />
+                
+        <config-file target="res/xml/config.xml" parent="/*">        
+            <feature name="CardIOPlugin">
+                <param name="android-package" value="com.bottleswaiting.plugins.cardio.BWCardIOPlugin"/>
+            </feature>
+        </config-file>
+        
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity android:configChanges="orientation|keyboardHidden" android:name="com.bottleswaiting.plugins.cardio.BWCardIOActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden">
+                <intent-filter>
+                    <action android:name="com.bottleswaiting.plugins.cardio.SCAN" />
+                    <category android:name="android.intent.category.DEFAULT" />
+                </intent-filter>
+            </activity>
+            <activity android:name="io.card.payment.CardIOActivity" android:configChanges="keyboardHidden|orientation" />
+            <activity android:name="io.card.payment.DataEntryActivity" />
+        </config-file>
+		
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+			<uses-permission android:name="android.permission.CAMERA" />
+            <uses-permission android:name="android.permission.VIBRATE" />
+			
+            <uses-feature android:name="android.hardware.camera" android:required="false" />
+            <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+            <uses-feature android:name="android.hardware.camera.flash" android:required="false" />
+        </config-file>
+	</platform>
+</plugin>

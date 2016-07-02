@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<widget id="com.bottleswaiting.bottleswaiting" version="1.0.0" android-versionCode="1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>Bottles Waiting</name>
+  <description>
+        Bottles service made easy
+    </description>
+  <author email="support@bottleswaiting.com" href="http://bottleswaiting.com/">
+      Bottles Waiting
+    </author>
+  <content src="index.html"/>
+  <access origin="https://beta-api.bottleswaiting.com"/>
+  <access origin="*.bottleswaiting.com"/>
+  <access origin="*"/>
+  <preference name="webviewbounce" value="false"/>
+  <preference name="UIWebViewBounce" value="false"/>
+  <preference name="DisallowOverscroll" value="true"/>
+  <preference name="BackupWebStorage" value="none"/>
+  <preference name="SplashScreen" value="screen" />
+  <preference name="SplashScreenDelay" value="20000" />
+  <feature name="StatusBar">
+    <param name="ios-package" value="CDVStatusBar" onload="true"/>
+  </feature>
+  <platform name="android">
+    <preference name="KeepRunning" value="false"/>
+    <preference name="Fullscreen" value="true"/>
+
+    <preference name="permissions" value="none"/>
+
+    <feature name="http://api.phonegap.com/1.0/camera"/>
+    <feature name="http://api.phonegap.com/1.0/contacts"/>
+
+    <icon src="src/images/icons/bw-tvdpi.png" density="tvdpi" />
+    <icon src="src/images/icons/bw-mdpi.png" density="mdpi" />
+    <icon src="src/images/icons/bw-hdpi.png" density="hdpi" />
+    <icon src="src/images/icons/bw-xhdpi.png" density="xhdpi" />
+    <icon src="src/images/icons/bw-xxhdpi.png" density="xxhdpi" />
+    <icon src="src/images/icons/bw-xxxhdpi.png" density="xxxhdpi" />
+
+    <!-- <splash src="src/app/images/splash_screen/splash-land-hdpi.png" density="land-hdpi"/>
+    <splash src="src/app/images/splash_screen/splash-land-ldpi.png" density="land-ldpi"/>
+    <splash src="src/app/images/splash_screen/splash-land-mdpi.png" density="land-mdpi"/>
+    <splash src="src/app/images/splash_screen/splash-land-xhdpi.png" density="land-xhdpi"/>
+    -->
+    <splash src="src/images/splash_screen/splash.png" />
+  </platform>
+</widget>

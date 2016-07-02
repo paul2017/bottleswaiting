@@ -1,0 +1,7 @@
+.signup input {
+	color : white;
+}
+.signup.list-inset {
+	background-color: transparent;
+	margin: 10px 0 20px 0;
+}

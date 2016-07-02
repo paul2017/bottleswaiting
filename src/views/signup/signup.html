@@ -1,0 +1,42 @@
+<ion-header-bar align-title="center" class="bar-energized">
+    <div class="buttons">
+        <button class="button button-icon" ng-click="goBack()">
+            <i class="ion-chevron-left"></i>
+            Back
+        </button>
+    </div>
+    <h1 class="title">Sign Up</h1>
+</ion-header-bar>
+<ion-view class="main">
+    <ion-content>
+        <div class="signup list list-inset pad-10">
+            <h3>Sign Up</h3>
+            <ng-form name="signupForm">
+                <label class="item item-input">
+                    <input type="text" name="first-name" hide-on-enter required placeholder="First name" ng-model="$parent.user.firstName" />
+                </label>
+                <label class="item item-input">
+                    <input type="text" name="last-name" hide-on-enter required placeholder="Last name" ng-model="$parent.user.lastName" />
+                </label>
+                <label class="item item-input">
+                    <input type="text" name="date-of-birth" hide-on-enter required placeholder="{{dobLabel}}" ui-mask="{{dobMask}}" ng-focus="addMask('dob')" ng-blur="removeMask('dob')" ng-model="$parent.user.dateOfBirth" />
+                </label>
+                <label class="item item-input">
+                    <input type="email" name="email" hide-on-enter required placeholder="Email" ng-model="$parent.user.email" />
+                </label>
+                <label class="item item-input">
+                    <input type="text" name="phone" hide-on-enter required placeholder="{{phoneLabel}}" ui-mask="{{phoneMask}}" ng-focus="addMask('phone')" ng-blur="removeMask('phone')"ng-model="$parent.user.phoneNumber" />
+                </label>
+                <label class="item item-input">
+                    <input type="password" name="password" hide-on-enter required placeholder="Password" ng-model="$parent.user.password" />
+                </label>
+                <label class="item item-input">
+                    <input type="password" name="confirm-password" hide-on-enter ui-validate="'$value==$parent.user.password'" placeholder="Confirm Password" ng-model="$parent.confirmPass" />
+                </label>
+                <div class="col-100">
+                    <button class="button button-full button-login" ng-click="signup()">Sign Up</button>
+                </div>
+            </ng-form>
+        </div>
+    </ion-content>
+</ion-view>
